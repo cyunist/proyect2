@@ -5,6 +5,12 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Proyecto-2 CRUD</title>
+
+    <!-- librerias de bootstrap -->
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-GLhlTQ8iRABdZLl6O3oVMWSktQOp6b7In1Zl3/Jr59b6EGGoI1aFkw7cmDA6j6gD" crossorigin="anonymous">
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/js/bootstrap.bundle.min.js" integrity="sha384-w76AqPfDkMBDXo30jS1Sgez6pr3x5MlQ1ZAGC+nuZB+EYdgRZgiwxhTBTkF7CXvN" crossorigin="anonymous"></script>
+
+    <!-- estilos co CSS -->
     <link rel="stylesheet" href="./css/styles.css">
 </head>
 <body>
@@ -25,9 +31,61 @@
                 
             </nav>
             <h1>QUE ES UN CRUD?</h1>
+            <div class="container mt-5">
+                <section class="row">
+                    <article class="col">
+                        <form >
+                            <label for="nombre" class="form-control">Nombre</label>
+                            <input 
+                                type="text" 
+                                class="form-control"
+                                id="nombre" 
+                                autocomplete="off"
+                            />
+                        
+                            <div class="mb-3">
+                                <label for="apellido">Apellido</label>
+                                <input 
+                                    type="text" 
+                                    class="form-control" 
+                                    id="apellido" 
+                                    autocomplete="off"
+                                />
+                            </div>
+                            <button
+                                type="button"
+                                class="btn btn-success"
+                                onclick="agregar"
+                             >
+                                 Agregar   
+                            </button>
+
+                            <button
+                                type="button"
+                                class="btn btn-info"
+                                onclick="mostrar"
+                             >
+                                 Mostrar   
+                            </button>
+                        </form>
+                    </article>
+                    <article>
+                        <table class="table">
+                            <thead>
+                                <tr>
+                                    <th scope="col">Nombre</th>
+                                    <th scope="col">Apellido</th>
+                                </tr>
+                            </thead>
+                            <tbody id="cuerpotabla"></tbody>
+                        </table>
+                    </article>                  
+                </section>
+                   
+            </div>
+
+
             <section>
-                <button>Crear</button>
-                <button>Consultar</button>
                 <button>Editar</button>
                 <button>Eliminar</button>
             </section>
