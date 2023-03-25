@@ -35,37 +35,38 @@
                 <section class="row">
                     <article class="col">
                         <form >
-                            <label for="nombre" class="form-control">Nombre</label>
-                            <input 
-                                type="text" 
-                                class="form-control"
-                                id="nombre" 
-                                autocomplete="off"
-                            />
-                        
+                            <div class="mb-3">  
+                                <label for="nombreEnt" class="form-label">Nombre</label>
+                                <input 
+                                   type="text" 
+                                   class="form-control"
+                                   id="nombreEnt" 
+                                   autocomplete="off"
+                                />
+                            </div>
                             <div class="mb-3">
-                                <label for="apellido">Apellido</label>
+                                <label for="apellidoEnt" class="form-label">Apellido</label>
                                 <input 
                                     type="text" 
                                     class="form-control" 
-                                    id="apellido" 
+                                    id="apellidoEnt" 
                                     autocomplete="off"
                                 />
                             </div>
                             <button
                                 type="button"
                                 class="btn btn-success"
-                                onclick="agregar"
+                                onclick="agregar()"
                              >
-                                 Agregar   
+                              Agregar   
                             </button>
 
                             <button
                                 type="button"
                                 class="btn btn-info"
-                                onclick="mostrar"
+                                onclick="mostrar()"
                              >
-                                 Mostrar   
+                              Mostrar   
                             </button>
                         </form>
                     </article>
@@ -73,6 +74,7 @@
                         <table class="table">
                             <thead>
                                 <tr>
+                                    <th scope="col">Id</th>
                                     <th scope="col">Nombre</th>
                                     <th scope="col">Apellido</th>
                                 </tr>
