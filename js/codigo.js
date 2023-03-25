@@ -14,7 +14,7 @@ const agregar = () => {
 }
 */
 
-const agregar = () => {
+const agregarUsuario = () => {
   const usuario = {
     id: crypto.randomUUID(),
     nombre: nombre.value,
@@ -22,13 +22,36 @@ const agregar = () => {
   };
 
   usuarios.push(usuario);
-  localStorage.setItem("usuarios", JSON.stringify(usuarios));
-  mostrar();
-};
 
+  localStorage.setItem("usuarios", JSON.stringify(usuarios));
+  consultarUsuario();
+};
 
 // mostrar los usuarios//
 
-const mostrar = () => {   
-    console.log(usuarios);
-}; 
+const consultarUsuario = () => {
+  cuerpoTabla.innerHTML = "";
+  usuarios.forEach((usuario) => {
+    cuerpoTabla.innerHTML += `<tr>
+        <th scope="row">${usuario.id}</th>
+        <td>${usuario.nombre}</td>
+        <td>${usuario.apellido}</td>
+        <td>
+        <button
+          type="button"
+          class="btn btn-danger"
+          onclick="eliminarUusario('${usuario.id}')"
+        >
+          Eliminar
+        </button><td>
+    </tr>`;
+  });
+};
+
+// elimimar usuarios//
+
+const eliminarUusario = (id) => {
+  console.log(id);
+  localStorage.setItem("usuarios", JSON.stringify(usuarios));
+  consultarUsuario();
+};

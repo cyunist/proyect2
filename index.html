@@ -56,7 +56,7 @@
                             <button
                                 type="button"
                                 class="btn btn-success"
-                                onclick="agregar()"
+                                onclick="agregarUsuario()"
                              >
                               Agregar   
                             </button>
@@ -64,9 +64,9 @@
                             <button
                                 type="button"
                                 class="btn btn-info"
-                                onclick="mostrar()"
+                                onclick="consultarUsuario()"
                              >
-                              Mostrar   
+                              Consulta   
                             </button>
                         </form>
                     </article>
@@ -79,19 +79,14 @@
                                     <th scope="col">Apellido</th>
                                 </tr>
                             </thead>
-                            <tbody id="cuerpotabla"></tbody>
+                            <tbody id="cuerpoTabla"></tbody>
                         </table>
                     </article>                  
                 </section>
                    
             </div>
-
-
-            <section>
-                <button>Editar</button>
-                <button>Eliminar</button>
-            </section>
         </head>
+    
         <footer class="pie-pagina">
             <div class="header">
                 <div class="logo">
@@ -147,6 +142,8 @@
             </div>
         </footer>
     </main>
+
     <script src="./js/codigo.js"></script>
+    
 </body>
 </html>
