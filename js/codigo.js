@@ -9,7 +9,7 @@ const usuarios = localStorage.getItem("usuarios")|| [] ;
 console.log(usuarios);
 
 const agregar = () => { 
-    console.log("agregarUsuaio");
+    console.log("agregarUsuario");
 
 }
 */
@@ -22,12 +22,11 @@ const agregarUsuario = () => {
   };
 
   usuarios.push(usuario);
-
   localStorage.setItem("usuarios", JSON.stringify(usuarios));
   consultarUsuario();
 };
 
-// mostrar los usuarios//
+// consultar los datos//
 
 const consultarUsuario = () => {
   cuerpoTabla.innerHTML = "";
@@ -36,22 +35,50 @@ const consultarUsuario = () => {
         <th scope="row">${usuario.id}</th>
         <td>${usuario.nombre}</td>
         <td>${usuario.apellido}</td>
+        
         <td>
-        <button
-          type="button"
-          class="btn btn-danger"
-          onclick="eliminarUusario('${usuario.id}')"
-        >
+         <button
+           type="button"
+           class="btn btn-danger"
+           onclick="eliminarUsuario('${usuario.id}')"
+         >
           Eliminar
-        </button><td>
+         </button>
+        <td>
+
+        <td>
+         <button
+           type="button"
+           class="btn btn-warning"
+           onclick="actualizarUsuario('${usuario.id}')"
+         >
+          Editar
+         </button>
+        <td>
     </tr>`;
   });
 };
 
-// elimimar usuarios//
+// elimimar dato//
 
-const eliminarUusario = (id) => {
+const eliminarUsuario = (id) => {
+
+/* consulta id a eliminar en el localStrore
+const eliminarUsuario = (id) => {  
   console.log(id);
   localStorage.setItem("usuarios", JSON.stringify(usuarios));
+  consultarUsuario(); */
+
+  const usuario = usuarios.find((usuario) => usuario.id === id)
+  console.log(usuario)
+  const index = usuarios.indexOf(usuario);
+  console.log(index)
+  usuarios.splice(index, 1)
+  localStorage.setItem("usuarios", JSON.stringify(usuarios));
   consultarUsuario();
-};
+
+};  
+
+const actualizarUsuario = (id) => {
+console.log(id)
+}
