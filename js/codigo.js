@@ -1,8 +1,15 @@
 
+
+const idEnt = document.getElementById("idEnt");
 const nombre = document.getElementById("nombreEnt");
 const apellido = document.getElementById("apellidoEnt");
 const usuarios = JSON.parse(localStorage.getItem("usuarios")) || [];
 const cuerpoTabla = document.getElementById("cuerpoTabla");
+
+const btnAgregar = document.getElementById("btnAgregar");
+const btnActualizar = document.getElementById("btnActualizar");
+btnActualizar.style.display="none";
+
 
 /*
 const usuarios = localStorage.getItem("usuarios")|| [] ;
@@ -24,11 +31,15 @@ const agregarUsuario = () => {
   usuarios.push(usuario);
   localStorage.setItem("usuarios", JSON.stringify(usuarios));
   consultarUsuario();
+  idEnt.value = "";
+  nombre.value = ""
+  apellido.value = ""
 };
 
 // consultar los datos//
 
 const consultarUsuario = () => {
+  
   cuerpoTabla.innerHTML = "";
   usuarios.forEach((usuario) => {
     cuerpoTabla.innerHTML += `<tr>
@@ -50,7 +61,7 @@ const consultarUsuario = () => {
          <button
            type="button"
            class="btn btn-warning"
-           onclick="actualizarUsuario('${usuario.id}')"
+           onclick="editarUsuario('${usuario.id}')"
          >
           Editar
          </button>
@@ -59,16 +70,17 @@ const consultarUsuario = () => {
   });
 };
 
-// elimimar dato//
+// elimimar dato del usuario//
 
-const eliminarUsuario = (id) => {
 
 /* consulta id a eliminar en el localStrore
+
 const eliminarUsuario = (id) => {  
   console.log(id);
   localStorage.setItem("usuarios", JSON.stringify(usuarios));
   consultarUsuario(); */
 
+const eliminarUsuario = (id) => {
   const usuario = usuarios.find((usuario) => usuario.id === id)
   console.log(usuario)
   const index = usuarios.indexOf(usuario);
@@ -79,6 +91,32 @@ const eliminarUsuario = (id) => {
 
 };  
 
-const actualizarUsuario = (id) => {
-console.log(id)
+// muestra el dato a corregir lo editar//
+
+const editarUsuario = (id) => {
+  btnAgregar.style.display="none";
+  btnActualizar.style.display="inline";
+
+  const usuario = usuarios.find((usuario) => usuario.id === id)
+  idEnt.value = usuario.id;
+  nombre.value = usuario.nombre;
+  apellido.value = usuario.apellido;
+}
+
+// Actualizar la informacion del usuario//
+
+const ActualizarUsuario = () => {
+
+  console.log("entro")
+  const usuario = usuarios.find((usuario) => usuario.id === idEnt.value)
+  usuario.nombre = nombre.value;
+  usuario.apellido = apellido.value;
+  localStorage.setItem("usuarios", JSON.stringify(usuarios));
+
+  consultarUsuario();
+  idEnt.value = "";
+  nombre.value = ""
+  apellido.value = ""
+  btnAgregar.style.display="inline";
+  btnActualizar.style.display="none";
 }

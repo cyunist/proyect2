@@ -36,6 +36,16 @@
                     <article class="col">
                         <form >
                             <div class="mb-3">  
+                                <label for="idEnt" class="form-label">Id</label>
+                                <input 
+                                   type="text" 
+                                   class="form-control"
+                                   id="idEnt" 
+                                   autocomplete="off"
+                                   disabled
+                                />
+                            </div>
+                            <div class="mb-3">  
                                 <label for="nombreEnt" class="form-label">Nombre</label>
                                 <input 
                                    type="text" 
@@ -54,6 +64,17 @@
                                 />
                             </div>
                             <button
+                               id="btnActualizar"
+                               type="button"
+                               class="btn btn-warning"
+                               onclick="ActualizarUsuario()"
+                               
+                             >
+                              Actualizar   
+                            </button>
+
+                            <button
+                                id="btnAgregar"
                                 type="button"
                                 class="btn btn-success"
                                 onclick="agregarUsuario()"
