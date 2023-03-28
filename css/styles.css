@@ -5,14 +5,14 @@
     
 }
 
-/* barra de navegacion */
+/* barra de navegacion 
 
 .navbar-nav {
     display: flex;
     flex-direction: row;
     justify-content: flex-end;
 }
-
+*/
 ul{
     list-style-type: none;
     margin: 0;
@@ -32,9 +32,7 @@ li a:hover {
     background-color: #282424;
 }
 
-h1{
-    text-align: centar;
-}
+
 
 /* Fooder - pie de pagina */
 .pie-pagina{
@@ -107,5 +105,7 @@ a{
 }
 .derechos{
     display: flex;
+    text-align: center;
     color: white;
+    
 }
